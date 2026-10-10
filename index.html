@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>家計簿</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+  <header class="page-header">
+    <h1>家計簿</h1>
+  </header>
+
+  <main class="ledger-layout">
+    <section class="entry-panel" aria-labelledby="entry-heading">
+      <h2 id="entry-heading">収支を登録</h2>
+      <form id="entry-form" autocomplete="off">
+        <p>
+          <label for="date">日付</label><br />
+          <input id="date" name="date" type="date" required />
+        </p>
+
+        <p>
+          <label for="item">品目</label><br />
+          <input id="item" name="item" type="text" placeholder="例：食費" required />
+        </p>
+
+        <p>
+          <label for="type">種類</label><br />
+          <select id="type" name="type">
+            <option value="支出">支出</option>
+            <option value="収入">収入</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="amount">金額</label><br />
+          <input id="amount" name="amount" type="number" min="1" step="1" placeholder="例：1500" required />
+        </p>
+
+        <p>
+          <button type="submit">追加</button>
+        </p>
+      </form>
+    </section>
+
+    <section class="ledger-panel" aria-labelledby="ledger-heading">
+      <h2 id="ledger-heading">家計簿一覧</h2>
+      <p class="total">収支差額：<strong id="balance-total">¥0</strong></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">日付</th>
+              <th scope="col">品目</th>
+              <th scope="col">種類</th>
+              <th scope="col">金額</th>
+            </tr>
+          </thead>
+          <tbody id="ledger-entries"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
